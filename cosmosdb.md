@@ -68,124 +68,105 @@
 
 
 
-### Local Environment
+### 로컬 환경 
 
-If you're not using one of the above options for opening the project, then you'll need to:
+프로젝트를 열 때 위의 옵션(Github Codespaces, Dev Containers) 중 하나를 사용하지 않는 경우, 다음을 수행해야 합니다.
 
-1. Make sure the following tools are installed:
+1. 다음 도구가 설치되어 있는지 확인합니다.
 
     * [.NET 8](https://dotnet.microsoft.com/downloads/)
     * [Git](https://git-scm.com/downloads)
     * [Azure Developer CLI (azd)](https://aka.ms/install-azd)
-    * [VS Code](https://code.visualstudio.com/Download) or [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-        * If using VS Code, install the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+    * [VS Code](https://code.visualstudio.com/Download) 또는 [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+        * VS Code를 사용하는 경우 [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)를 설치합니다. 
 
-2. Download the project code:
+2. 프로젝트를 열 때 위의 옵션 중 하나를 사용하지 않는 경우 다음을 수행해야 합니다.
 
     ```shell
     azd init -t cosmosdb-nosql-copilot
     ```
 
-3. If you're using Visual Studio, open the src/cosmos-copilot.sln solution file. If you're using VS Code, open the src folder.
+3. Visual Studio를 사용하는 경우 src/cosmos-copilot.sln 솔루션 파일을 엽니다. VS Code를 사용하는 경우 src 폴더를 엽니다.
 
-7. Continue with the [deploying steps](#deployment).
 
-### VS Code Dev Containers
+### 배포 
 
-A related option is VS Code Dev Containers, which will open the project in your local VS Code using the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
+1. 터미널을 열고 이 솔루션을 복제할 위치로 이동합니다.
 
-1. Start Docker Desktop (install it if not already installed)
-2. Open the project:
-
-    [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/AzureCosmosDB/cosmosdb-nosql-copilot)
-
-3. In the VS Code window that opens, once the project files show up (this may take several minutes), open a terminal window.
-
-4. Continue with the [deploying steps](#deployment)
-
-### Deployment
-
-1. Open a terminal and navigate to where you would like to clone this solution
-
-1. Run the following command to download the solution locally to your machine:
+1. 다음 명령을 실행하여 솔루션을 컴퓨터에 로컬로 다운로드합니다.
 
     ```bash
     azd init -t AzureCosmosDB/cosmosdb-nosql-copilot
     ```
 
-1. From the terminal, navigate to the /infra directory in this solution.
+1. 터미널에서 이 솔루션의 /infra 디렉터리로 이동합니다.
 
-1. Log in to AZD.
+1. AZD에 로그인합니다.
     
     ```bash
     azd auth login
     ```
 
-1. Provision the Azure services, build your local solution container, and deploy the application.
+1. Azure 서비스를 프로비전하고, 로컬 솔루션 컨테이너를 빌드하고, 응용 프로그램을 배포합니다.
     
     ```bash
     azd up
     ```
 
-### Setting up local debugging
+### 로컬 디버깅 설정
 
-When you deploy this solution it automatically injects endpoints and configuration values into the secrets.json file used by .NET applications.
+이 솔루션을 배포하면 .NET 응용 프로그램에서 사용하는 secrets.json 파일에 끝점 및 구성 값이 자동으로 삽입됩니다.
 
-To modify values for the Quickstarts, locate the value of `UserSecretsId` in the csproj file in the /src folder of this sample and save the value.
+퀵 스타트의 값을 수정하려면 이 샘플의 /src 폴더에 있는 csproj 파일에서 의 값을 찾아 저장합니다. `UserSecretsId` 
 
 ```xml
 <PropertyGroup>
   <UserSecretsId>your-guid-here</UserSecretsId>
 </PropertyGroup>
 ```
-Locate the secrets.json file and open with a text editor.
+secrets.json 파일을 찾아 텍스트 편집기로 엽니다.
 
 - Windows: `C:\Users\<YourUserName>\AppData\Roaming\Microsoft\UserSecrets\<UserSecretsId>\secrets.json`
 - macOS/Linux: `~/.microsoft/usersecrets/<UserSecretsId>/secrets.json`
 
 
-### Quickstart
 
-Follow the Quickstarts in this solution to go through the concepts for building RAG Pattern apps and the features in this sample and how to implement them yourself.
+## 리소스 정리
 
-Please see [Quickstarts](quickstart.md)
+1. 터미널을 열고 이 솔루션의 /infra 디렉터리로 이동합니다.
 
-
-## Clean up
-
-1. Open a terminal and navigate to the /infra directory in this solution.
-
-1. Type azd down
+1. azd down을 입력합니다.
     
     ```bash
     azd down
     ```
 
-## Guidance
+## 가이드
 
-### Region Availability
+### 지역 가용성
 
-This template uses gpt-4o and text-embedding-3-large models which may not be available in all Azure regions. Check for [up-to-date region availability](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly
-  * We recommend using `eastus2', 'eastus', 'japaneast', 'uksouth', 'northeurope', or 'westus3'
+이 템플릿은 모든 Azure 지역에서 사용하지 못할 수 있는 gpt-4o 및 text-embedding-3-large 모델을 사용합니다.[최신 지역 가용성](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) 을 확인하고 그에 따라 배포 중에 지역을 선택합니다.
+  * `eastus2', 'eastus', 'japaneast', 'uksouth', 'northeurope', 또는 'westus3'을 사용하는 것이 좋습니다. 
 
-### Costs
+### 비용
 
-You can estimate the cost of this project's architecture with [Azure's pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+[Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하여 이 프로젝트의 아키텍처 비용을 예측할 수 있습니다
 
-As an example in US dollars, here's how the sample is currently built:
+예를 들어 미국 달러로 현재 샘플을 빌드하는 방법은 다음과 같습니다.
 
-Average Monthly Cost:
-* Azure Cosmos DB Serverless ($0.25 USD per 1M RU/s): $0.25
-* Azure App Service (B1 Plan): $12.41
-* Azure OpenAI (GPT-4o 1M input/output tokens): $20 (Sample uses 10K tokens)
-* Azure OpenAI (text-3-large): < $0.01 (Sample uses 5K tokens)
+월 평균 비용:
 
-## Resources
+Azure Cosmos DB 서버리스(1M RU/s당 $0.25 USD): $0.25
+Azure App Service(B1 플랜): $12.41
+Azure OpenAI(GPT-4o 1M 입력/출력 토큰): $20(샘플은 10K 토큰 사용)
+Azure OpenAI(text-3-large): < $0.01(샘플은 5K 토큰을 사용함)
 
-To learn more about the services and features demonstrated in this sample, see the following:
+## 참고 문서
 
-- [Azure Cosmos DB for NoSQL Vector Search announcement](https://aka.ms/CosmosDBDiskANNBlog/)
-- [Azure OpenAI Service documentation](https://learn.microsoft.com/azure/cognitive-services/openai/)
-- [Semantic Kernel](https://learn.microsoft.com/semantic-kernel/overview)
-- [Azure App Service documentation](https://learn.microsoft.com/azure/app-service/)
-- [ASP.NET Core Blazor documentation](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
+이 샘플에 설명된 서비스 및 기능에 대한 자세한 내용은 다음을 참조하세요.
+
+- [Azure Cosmos DB for NoSQL Vector Search 발표](https://aka.ms/CosmosDBDiskANNBlog/)
+- [Azure OpenAI Service 문서](https://learn.microsoft.com/azure/cognitive-services/openai/)
+- [시맨틱 커널](https://learn.microsoft.com/semantic-kernel/overview)
+- [Azure App Service 문서](https://learn.microsoft.com/azure/app-service/)
+- [ASP.NET Core Blazor 문서](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
