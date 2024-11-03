@@ -21,6 +21,6 @@
 
 ## 참고 및 인용된 Repository
 
-* [Build a Copilot app using Azure Cosmos DB for NoSQL, Azure OpenAI Service, Azure App Service and Semantic Kernel] (https://github.com/AzureCosmosDB/cosmosdb-nosql-copilot)
-* [Azure SQL DB - Retrieval Augmented Generation (RAG) with OpenAI] (https://github.com/Azure-Samples/azure-sql-db-chatbot)
-* [Customer-Service-Conversational-Insights-with-Azure-OpenAI-Services] (https://github.com/microsoft/Customer-Service-Conversational-Insights-with-Azure-OpenAI-Services)
+* [Build a Copilot app using Azure Cosmos DB for NoSQL, Azure OpenAI Service, Azure App Service and Semantic Kernel](https://github.com/AzureCosmosDB/cosmosdb-nosql-copilot)
+* [Azure SQL DB - Retrieval Augmented Generation (RAG) with OpenAI](https://github.com/Azure-Samples/azure-sql-db-chatbot)
+* [Customer-Service-Conversational-Insights-with-Azure-OpenAI-Services](https://github.com/microsoft/Customer-Service-Conversational-Insights-with-Azure-OpenAI-Services)
