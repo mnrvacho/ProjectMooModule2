@@ -1,4 +1,4 @@
-
+![image](https://github.com/user-attachments/assets/077401c1-329d-4c3b-96aa-7c4380531bc6)
 # Azure Cosmos DB for NoSQL, Azure OpenAI Service, Azure App Service 및 시맨틱 커널을 이용한 Copilot 앱 개발
 
 이 샘플 애플리케이션은 Azure App Service, Azure OpenAI Service와 함께 새로운 벡터 데이터베이스 기능과 함께 NoSQL용 Azure Cosmos DB를 사용하여 다중 테넌트, 다중 사용자, Generative-AI RAG 패턴 애플리케이션을 빌드하는 방법을 보여 줍니다. 이 샘플은 네이티브 SDK와 시맨틱 커널 통합을 모두 사용하는 방법을 보여줍니다. 이 샘플에서는 이러한 유형의 응용 프로그램을 디자인하고 빌드하는 데 필요한 많은 개념에 대한 실용적인 지침을 제공합니다.
@@ -43,10 +43,10 @@
     이 랩에서는 미리 보기 기능 등록이 필요한 **NoSQL용 Azure Cosmos DB에 대한 벡터 검색** 이라는 미리 보기 기능을 활용합니다. 아래 단계에 따라 등록하십시오. 이 솔루션을 배포하기 전에 등록해야 합니다.
 
   1. Azure Cosmos DB for NoSQL 리소스 페이지로 이동합니다.
-  2. "설정" 메뉴 항목에서 "기능" 창을 선택합니다.
-  3. "Azure Cosmos DB for NoSQL에서 벡터 검색"을 선택합니다.
-  4. 설명을 읽고 미리 보기에 등록할 것인지 확인합니다.
-  5. "Enable(사용)"을 선택하여 Vector Search 미리보기에 등록합니다.
+  1. "설정" 메뉴 항목에서 "기능" 창을 선택합니다.
+  1. "Azure Cosmos DB for NoSQL에서 벡터 검색"을 선택합니다.
+  1. 설명을 읽고 미리 보기에 등록할 것인지 확인합니다.
+  1. "Enable(사용)"을 선택하여 Vector Search 미리보기에 등록합니다.
 
     #### Azure OpenAI 할당량 한도 확인
 
@@ -63,83 +63,6 @@
 
 
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/AzureCosmosDB/cosmosdb-nosql-copilot)
-[![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/AzureCosmosDB/cosmosdb-nosql-copilot)
-
-
-
-### 로컬 환경 
-
-프로젝트를 열 때 위의 옵션(Github Codespaces, Dev Containers) 중 하나를 사용하지 않는 경우, 다음을 수행해야 합니다.
-
-1. 다음 도구가 설치되어 있는지 확인합니다.
-
-    * [.NET 8](https://dotnet.microsoft.com/downloads/)
-    * [Git](https://git-scm.com/downloads)
-    * [Azure Developer CLI (azd)](https://aka.ms/install-azd)
-    * [VS Code](https://code.visualstudio.com/Download) 또는 [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-        * VS Code를 사용하는 경우 [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)를 설치합니다. 
-
-2. 프로젝트를 열 때 위의 옵션 중 하나를 사용하지 않는 경우 다음을 수행해야 합니다.
-
-    ```shell
-    azd init -t cosmosdb-nosql-copilot
-    ```
-
-3. Visual Studio를 사용하는 경우 src/cosmos-copilot.sln 솔루션 파일을 엽니다. VS Code를 사용하는 경우 src 폴더를 엽니다.
-
-
-### 배포 
-
-1. 터미널을 열고 이 솔루션을 복제할 위치로 이동합니다.
-
-1. 다음 명령을 실행하여 솔루션을 컴퓨터에 로컬로 다운로드합니다.
-
-    ```bash
-    azd init -t AzureCosmosDB/cosmosdb-nosql-copilot
-    ```
-
-1. 터미널에서 이 솔루션의 /infra 디렉터리로 이동합니다.
-
-1. AZD에 로그인합니다.
-    
-    ```bash
-    azd auth login
-    ```
-
-1. Azure 서비스를 프로비전하고, 로컬 솔루션 컨테이너를 빌드하고, 응용 프로그램을 배포합니다.
-    
-    ```bash
-    azd up
-    ```
-
-### 로컬 디버깅 설정
-
-이 솔루션을 배포하면 .NET 응용 프로그램에서 사용하는 secrets.json 파일에 끝점 및 구성 값이 자동으로 삽입됩니다.
-
-퀵 스타트의 값을 수정하려면 이 샘플의 /src 폴더에 있는 csproj 파일에서 의 값을 찾아 저장합니다. `UserSecretsId` 
-
-```xml
-<PropertyGroup>
-  <UserSecretsId>your-guid-here</UserSecretsId>
-</PropertyGroup>
-```
-secrets.json 파일을 찾아 텍스트 편집기로 엽니다.
-
-- Windows: `C:\Users\<YourUserName>\AppData\Roaming\Microsoft\UserSecrets\<UserSecretsId>\secrets.json`
-- macOS/Linux: `~/.microsoft/usersecrets/<UserSecretsId>/secrets.json`
-
-
-
-## 리소스 정리
-
-1. 터미널을 열고 이 솔루션의 /infra 디렉터리로 이동합니다.
-
-1. azd down을 입력합니다.
-    
-    ```bash
-    azd down
-    ```
 
 ## 가이드
 
@@ -161,6 +84,117 @@ Azure App Service(B1 플랜): $12.41
 Azure OpenAI(GPT-4o 1M 입력/출력 토큰): $20(샘플은 10K 토큰 사용)
 Azure OpenAI(text-3-large): < $0.01(샘플은 5K 토큰을 사용함)
 
+
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/AzureCosmosDB/cosmosdb-nosql-copilot)
+[![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/AzureCosmosDB/cosmosdb-nosql-copilot)
+
+
+
+### 로컬 환경 
+
+프로젝트를 열 때 위의 옵션(Github Codespaces, Dev Containers) 중 하나를 사용하지 않는 경우, 다음을 수행해야 합니다.
+
+1. 다음 도구가 설치되어 있는지 확인합니다.
+
+    * [.NET 8](https://dotnet.microsoft.com/downloads/)
+    * [Git](https://git-scm.com/downloads)
+    * [Azure Developer CLI (azd)](https://aka.ms/install-azd)
+    * [VS Code](https://code.visualstudio.com/Download) 또는 [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+        * VS Code를 사용하는 경우 [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)를 설치합니다. 
+
+1. Visual Studio를 사용하는 경우 src/cosmos-copilot.sln 솔루션 파일을 엽니다. VS Code를 사용하는 경우 src 폴더를 엽니다.
+
+
+### 배포 
+
+1. 터미널을 열고 (VS Code의 경우, 상단 'View' -> 'Terminal'), 솔루션 복제할 위치로 이동합니다. 
+   ![image](https://github.com/user-attachments/assets/eb4e6192-db55-44fd-ae85-93256c1352ce)
+
+
+1. 다음 명령을 실행하여 솔루션을 컴퓨터에 로컬로 다운로드합니다. 생성할 리소스 그룹 이름을 입력합니다. 
+
+    ```bash
+    azd init -t AzureCosmosDB/cosmosdb-nosql-copilot
+    ```
+![image](https://github.com/user-attachments/assets/8a34bd0b-4712-4d2f-b88c-564dd4d594df)
+
+1. 터미널에서 이 솔루션의 /infra 디렉터리로 이동합니다.
+![image](https://github.com/user-attachments/assets/1b0f55ca-f1d9-4582-ba21-3b8eb117c7f4)
+
+
+1. AZD에 로그인합니다. 브라우저 창에서 계정 입력 및 보안 인증을 진행합니다. 
+    
+    ```bash
+    azd auth login
+    ```
+
+
+1. Azure 서비스를 프로비전하고, 로컬 솔루션 컨테이너를 빌드하고, 응용 프로그램을 배포합니다. 사용할 구독권을 선택하고, 리소스 배포 지역은 `eastus2', 'eastus', 'japaneast', 'uksouth', 'northeurope', 또는 'westus3'을 사용하는 것이 좋습니다.
+    
+    ```bash
+    azd up
+    ```
+![image](https://github.com/user-attachments/assets/6c82707a-e7e2-4142-92ab-011eff8d1496)
+
+![image](https://github.com/user-attachments/assets/78a396aa-73ba-411e-b5b0-6b59f88c0baf)
+
+1. 배포된 웹앱을 링크로 연결합니다.
+
+# 연습 
+
+ 문서에서는 이 샘플에 구현된 개념을 안내하므로 해당 기능과 동일한 작업을 수행하는 방법을 이해할 수 있습니다.
+
+이 예제 응용 프로그램에 사용된 기본 데이터 집합은 SQL Server의 Adventure Works 데이터베이스에 있는 제품 카탈로그입니다. 이것은 자전거 소매 시나리오입니다. 제품 카탈로그에는 자전거, 프레임, 시트, 액세서리를 포함하여 질문을 제기할 수 있는 제품이 포함되어 있습니다. 제품은 색상, 가격 등과 같은 다양한 속성을 가지고 있으며 제품 범주에 따라 다릅니다. 이 데이터 세트에 대한 자세한 내용을 보려면 사용 가능한 제품 범주를 문의하고 카탈로그에서 제품을 직접 탐색할 수 있습니다.
+
+# 컨택스트 창 (채팅 기록)
+
+인간은 논의 중인 내용의 *맥락*이 있는 대화를 통해 서로 상호 작용합니다. OpenAI의 ChatGPT도 이러한 방식으로 인간과 상호 작용할 수 있습니다. 그러나 이 기능은 LLM 자체에 고유하지 않습니다. 구현해야 합니다. LLM을 통해 다른 사람과의 대화에서 볼 수 있는 것처럼 기존 맥락을 암시하는 후속 질문을 하는 상황에 맞는 후속 질문을 테스트할 때 어떤 일이 발생하는지 살펴보겠습니다.
+
+## 빠른 시작: 대화 컨텍스트
+이것을 실제로 관찰해 보겠습니다. Visual Studio 또는 VS Code의 디버그 세션(F5)에서 애플리케이션을 시작한 다음, 다음 단계를 수행합니다.
+
+페이지 왼쪽 상단에 있는 "새 채팅 만들기"를 클릭하여 새 채팅 세션을 시작합니다.
+질문을 입력하면 앱이 자전거 목록과 각 자전거에 대한 정보로 응답합니다. What bikes do you have?
+컨텍스트 없이 후속 조치를 입력하면 앱이 빨간색 자전거 목록으로 응답합니다. Do you have any in red?
+세 번째 후속 조치를 입력하면 앱이 48인치 프레임의 자전거 목록으로 응답합니다. Any with a 48 inch frame?
+LLM은 대화의 맥락을 유지하고 적절하게 답변할 수 있습니다. 또한 LLM에 의해 생성된 사용자 프롬프트와 완료 모두에 대해 표시되는 토큰의 값도 여기에 유의하십시오. 
+
+![image](https://github.com/user-attachments/assets/20628eef-98c2-45dc-a0d2-66e3710b760b)
+
+
+# 토큰
+
+대규모 언어 모델에는 상황에 맞는 결과를 생성하기 위해 채팅 기록이 필요합니다. 그러나 LLM에 보낼 수 있는 텍스트의 양에는 제한이 있습니다. 대규모 언어 모델에는 요청에서 처리하고 응답으로 출력할 수 있는 텍스트의 양에 제한이 있습니다. 이러한 제한은 토큰으로 측정됩니다. 토큰은 대규모 언어 모델에 대한 계산 통화이며 단어 또는 단어의 일부를 나타냅니다. 평균적으로 4자는 하나의 토큰입니다. 토큰에 대한 이러한 제한 때문에 요청 및 응답에서 사용되는 수를 제한해야 합니다. 이것은 약간 까다로울 수 있습니다. 동시에 LLM이 올바른 응답을 생성할 수 있도록 충분한 컨텍스트를 보장해야 하며, 불완전한 결과나 예기치 않은 동작을 포함할 수 있는 너무 많은 토큰을 사용하여 발생하는 부정적인 결과를 피해야 합니다.
+
+이 응용 프로그램에서는 컨텍스트 창의 크기(채팅 기록의 길이)를 구성할 수 있도록 하여 토큰 사용을 제어하는 방법을 강조합니다. 이 작업은 secrets.json 또는 appsettings.json 파일에 저장된 구성 값 **MaxConversationTokens**를 사용하여 수행됩니다.
+
+토큰 소비에 영향을 줄 수 있는 또 다른 것은 추가 정보를 제공하기 위해 외부 데이터를 LLM으로 보내는 경우입니다. 이를 Retrieval Augmented Generation 또는 RAG Pattern이라고 합니다. 이 패턴에서는 데이터베이스(또는 외부 소스)의 데이터를 사용하여 응답을 생성하기 위한 추가 정보를 제공하여 LLM을 보강하거나 접지합니다. 이러한 외부 소스의 데이터 양은 다소 커질 수 있습니다. 전송되는 데이터의 양에 따라 요청/응답당 수천 개의 토큰을 사용할 수 있습니다.
+
+토큰 사용을 제어하는 두 번째 방법은 데이터베이스 쿼리에서 반환되는 데이터의 양을 제한하는 것입니다. 이 샘플에서는 다른 구성 값인 productMaxResults를 사용하여 이 작업을 수행합니다. 반환되는 데이터의 양을 제한하여 사용할 수 있는 토큰의 수를 제어할 수 있습니다. 그러나 쿼리에서 반환되는 항목의 양을 제한하는 것은 그리 정확하지 않습니다.
+
+## 토크나이저
+
+토큰 소비를 관리하는 더 좋은 방법은 데이터베이스에서 컨텍스트 창과 결과를 모두 가져와서 [Tiktoken](https://github.com/openai/tiktoken) 과 같은 토크나이저에 전달하여 LLM에 대한 요청에서 결과가 얼마나 많은 토큰을 소비하는지 계산하는 것입니다. 이 애플리케이션은 [Microsoft.ML.Tokenizers](https://github.com/microsoft/Tokenizer)(OpenAI의 Tiktoken의 .NET 구현)를 사용하여 채팅 기록에 저장할 사용자 프롬프트에 대한 토큰을 계산합니다.
+
+이 샘플은 채팅 기록 및 RAG 패턴 데이터가 토큰 사용에 미치는 영향을 강조하기 위해 지나치게 단순한 접근 방식을 사용합니다. 프로덕션 시스템에서 보다 완벽한 솔루션은 토크나이저를 활용하여 채팅 기록과 RAG 패턴 결과를 독립적으로 측정한 다음, LLM에 대한 애플리케이션 요청에 대한 최대 토큰 제한에 맞도록 크기를 줄일 위치를 결정하는 것입니다. 여기에는 일반적으로 LLM을 호출하기 전에 토큰을 측정하기 위해 토크나이저가 포함됩니다.
+
+
+
+
+
+## 리소스 정리
+
+1. 터미널을 열고 이 솔루션의 /infra 디렉터리로 이동합니다.
+![image](https://github.com/user-attachments/assets/1b0f55ca-f1d9-4582-ba21-3b8eb117c7f4)
+
+1. azd down을 입력합니다.
+    
+    ```bash
+    azd down
+    ```
+
+    
 ## 참고 문서
 
 이 샘플에 설명된 서비스 및 기능에 대한 자세한 내용은 다음을 참조하세요.
