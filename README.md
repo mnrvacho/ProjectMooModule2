@@ -15,9 +15,9 @@
 
 ## 실습 순서
 
-1. [Azure Cosmos DB for NoSQL, Azure OpenAI Service, Azure App Service 및 시맨틱 커널을 이용한 Copilot 앱 개발](https://github.com/mnrvacho/ProjectMooModule2/blob/main/1.%20cosmosdb.md) 
-2. [Azure SQL DB - OpenAI를 사용한 RAG(검색 증강 생성)](https://github.com/mnrvacho/ProjectMooModule2/blob/main/2.%20sqldb) 
-3. [Microsoft Fabric에 대화 지식 마이닝](https://github.com/mnrvacho/ProjectMooModule2/blob/main/3.%20fabric)
+1. [Azure Cosmos DB for NoSQL, Azure OpenAI Service, Azure App Service 및 시맨틱 커널을 이용한 Copilot 앱 개발](https://github.com/mnrvacho/ProjectMooModule2/blob/main/1.%20Azure%20CosmosDB%20with%20Azure%20OpenAI.md) 
+2. [Azure SQL DB - OpenAI를 사용한 RAG(검색 증강 생성)](https://github.com/mnrvacho/ProjectMooModule2/blob/main/2.%20Azure%20SQL%20Database%20with%20Azure%20OpenAI.md) 
+3. [Microsoft Fabric에 대화 지식 마이닝](https://github.com/mnrvacho/ProjectMooModule2/blob/main/3.%20Microsoft%20Fabric%20with%20Azure%20OpenAI)
 
 ## 참고 및 인용된 Repository
 
