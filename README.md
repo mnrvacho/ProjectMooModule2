@@ -1,8 +1,8 @@
-# ProjectMooModule2
+# [Project Moo] Module 2
 
 ## Hands-on Lab 개요
 
-본 실습 과정은 한국 마이크로소프트와 파트너의 기술 협력 프로그램 중 하나인 "Project Moo"의 두 번째 실습 과정입니다. Azure OpenAI와 Data Platform의 활용 방안에 대해 알아 보고 해당 기능들을 구현해 봅니다. 
+본 실습 과정은 한국 마이크로소프트와 파트너의 기술 협력 프로그램 중 하나인 "Project Moo"의 두 번째 실습 과정입니다. **Azure OpenAI와 Data Platform의 활용 방안**에 대해 알아 보고 해당 기능들을 구현해 봅니다. 
 
 
 ## 사용 Azure 리소스 및 환경
