@@ -23,7 +23,9 @@
 3. [Microsoft Fabric에 Azure OpenAI 대화 지식마이닝 (Python)](https://github.com/mnrvacho/ProjectMooModule2/blob/main/3.%20Microsoft%20Fabric%20with%20Azure%20OpenAI.md)
 
 Module 1 참고: [Azure AI Search로 Azure OpenAI RAG 채팅 어플리케이션 (Python)](https://github.com/jeongaelee/ProjectMooModule1/blob/main/RAG.md) 
+
 <br/>  
+
 
 ## 인용된 Repository
 
