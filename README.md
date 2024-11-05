@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/2d694a55-7d0e-4ff6-9fd8-dea32183a3be)# ProjectMooModule2
+# ProjectMooModule2
 
 ## Hands-on Lab 개요
 
